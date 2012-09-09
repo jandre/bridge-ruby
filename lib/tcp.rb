@@ -18,7 +18,7 @@ module Bridge
     end
 
     def post_init
-      start_tls(:verify_peer => true) if @connection.options[:secure]
+      start_tls(:verify_peer => (@connection.options[:verify_peer]  == false) ? false : true) if @connection.options[:secure] 
     end
 
     def connection_completed
