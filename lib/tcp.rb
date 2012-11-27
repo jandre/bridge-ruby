@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'eventmachine'
 require 'openssl'
 require 'ssl_utils.rb'

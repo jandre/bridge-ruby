@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'uri'
 require 'util.rb'
 require 'tcp.rb'

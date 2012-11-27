@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Bridge
   # Instances of this class represent references to remote services.
   class Reference #:nodoc: all

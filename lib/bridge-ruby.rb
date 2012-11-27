@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'util.rb'
 require 'serializer.rb'
 require 'connection.rb'
@@ -154,7 +155,7 @@ module Bridge
     #  
     # <tt>'ready' ()</tt>:: Bridge is connected and ready. Not emitted on
     #   reconnects
-    # <tt>'remoteError' (error_message)</tt>:: A remote error has occurred
+    # <tt>'remote_error' (error_message)</tt>:: A remote error has occurred
     #   in Bridge. The error message is provided as a parameter
     def on name, &fn
       if !@events.key? name

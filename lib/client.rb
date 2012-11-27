@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'serializer.rb'
 require 'reference.rb'
 
