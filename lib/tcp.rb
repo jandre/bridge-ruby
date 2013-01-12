@@ -61,7 +61,7 @@ module Bridge
 
     def send arg
       # Prepend length header to message
-      size = [args.bytes.to_a.length].pack("N").force_encoding("utf-8") 
+      size = [arg.bytes.to_a.length].pack("N").force_encoding("utf-8") 
       send_data(size + arg)
     end
 
