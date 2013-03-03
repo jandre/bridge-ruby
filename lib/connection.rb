@@ -95,15 +95,16 @@ module Bridge
     end
     
     def onclose
-      Util.warn 'Connection closed'
       # Restore preconnect buffer as socket connection
       @sock = @sock_buffer
       if @options[:reconnect]
+        Util.warn 'Connection closed'
         reconnect
       end
     end
 
     def close
+      @options[:reconnect] = false
       @connection.close_connection if @connection
     end
     
