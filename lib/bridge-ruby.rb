@@ -111,7 +111,6 @@ module Bridge
       rescue => e
         Util.error(e)
         @store['system'].remoteError("Unable to execute: #{e}")
-        raise
       end
 
       if func
