@@ -109,9 +109,11 @@ module Bridge
       begin
         func = obj.method(address[3])
       rescue => e
-        emit 'remote_error', ["Error performing method call: #{e}"]
+        Util.error(e)
+        @store['system'].remoteError("Unable to execute: #{e}")
         raise
       end
+
       if func
         last = args.last
         # If last argument is callable and function arity is one less than
