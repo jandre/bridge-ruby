@@ -106,7 +106,12 @@ module Bridge
       # Retrieve stored handler
       obj = @store[address[2]]
       # Retrieve function in handler
-      func = obj.method(address[3])
+      begin
+        func = obj.method(address[3])
+      rescue => e
+        @bridge.emit 'remote_error', ["Error performing method call: #{e}"]
+        raise
+      end
       if func
         last = args.last
         # If last argument is callable and function arity is one less than
