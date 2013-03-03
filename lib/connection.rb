@@ -60,7 +60,8 @@ module Bridge
     
     def establish_connection
       Util.info "Starting TCP connection #{@options[:host]}, #{@options[:port]}"
-      EventMachine::connect(@options[:host], @options[:port], Tcp, self)
+      @connection = EventMachine::connect(@options[:host], @options[:port], Tcp, self)
+      p "XXX: "
     end
     
     def onmessage data, sock
@@ -101,6 +102,10 @@ module Bridge
       if @options[:reconnect]
         reconnect
       end
+    end
+
+    def close
+      @connection.close_connection if @connection?
     end
     
     def process_message message
