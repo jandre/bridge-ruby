@@ -109,7 +109,7 @@ module Bridge
       begin
         func = obj.method(address[3])
       rescue => e
-        @bridge.emit 'remote_error', ["Error performing method call: #{e}"]
+        emit 'remote_error', ["Error performing method call: #{e}"]
         raise
       end
       if func
